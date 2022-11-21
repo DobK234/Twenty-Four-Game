@@ -30,6 +30,10 @@ public class GameFrame extends JFrame {
     public static final int END_GAME_PANEL = 5;
     public static final int LEADERBOARDS_PANEL = 6;
 
+    private ArrayList<Team> previousTeams = null;
+    private int previousPlayersNum = -1;
+    private int previousTeamsNum = -1;
+
     // All panels are here, with a static final int reference that
     //  I use to toggle visibility only rather than creating new ones each time.
     // (I believe this is better because there aren't that many panels I need to use)
@@ -214,5 +218,23 @@ public class GameFrame extends JFrame {
         label.setHorizontalTextPosition(JLabel.CENTER);
         label.setBounds(bounds[0], bounds[1], bounds[2], bounds[3]);
         label.setVisible(true);
+    }
+
+    public void setPreviousTeams(ArrayList<Team> teams, int previousPlayersNum, int previousTeamsNum) {
+        previousTeams = teams;
+        this.previousPlayersNum = previousPlayersNum;
+        this.previousTeamsNum = previousTeamsNum;
+    }
+
+    public ArrayList<Team> getPreviousTeams() {
+        return previousTeams;
+    }
+
+    public int getPreviousPlayersNum() {
+        return previousPlayersNum;
+    }
+
+    public int getPreviousTeamsNum() {
+        return previousTeamsNum;
     }
 }
